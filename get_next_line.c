@@ -6,15 +6,11 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 17:00:53 by abait-el          #+#    #+#             */
-/*   Updated: 2025/11/21 20:24:00 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/11/23 16:32:11 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 5
-#endif /* ifndef BUFFER_SIZE */
 
 char	*gnl_strcut(char **s, char sep)
 {
@@ -60,6 +56,8 @@ char	*get_next_line(int fd)
 			break ;
 		buf[bytes] = '\0';
 		line = gnl_strjoin(line, line != NULL, buf, NO);
+		if (!line)
+			break ;
 	}
 	free(buf);
 	rem = gnl_strcut(&line, '\n');

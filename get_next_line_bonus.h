@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 17:00:53 by abait-el          #+#    #+#             */
-/*   Updated: 2025/11/22 12:31:50 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/11/23 16:33:42 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # define YES 1
 # define NO  0
 # define MAX_FDS 1024
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 15
+# endif /* ifndef BUFFER_SIZE */
 
 # include <unistd.h>
 # include <stdlib.h>

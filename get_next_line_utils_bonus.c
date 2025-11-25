@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 17:00:53 by abait-el          #+#    #+#             */
-/*   Updated: 2025/11/17 12:09:12 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/11/23 16:19:45 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,11 @@ char	*gnl_strjoin(char *s1, int free_s1, char *s2, int free_s2)
 	s1_len = gnl_strlen(s1);
 	s2_len = gnl_strlen(s2);
 	res = (char *)malloc(s1_len + s2_len + 1);
-	if (!res)
-		return (NULL);
-	gnl_strlcpy(res, s1, s1_len + s2_len + 1);
-	gnl_strlcpy(res + s1_len, s2, s2_len + 1);
+	if (res)
+	{
+		gnl_strlcpy(res, s1, s1_len + s2_len + 1);
+		gnl_strlcpy(res + s1_len, s2, s2_len + 1);
+	}
 	if (free_s1)
 		free(s1);
 	if (free_s2)
