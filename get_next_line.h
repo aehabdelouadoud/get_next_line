@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 17:00:53 by abait-el          #+#    #+#             */
-/*   Updated: 2025/11/23 16:33:27 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/12/02 05:57:36 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # define NO  0
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 15
+#  define BUFFER_SIZE 555
 # endif /* ifndef BUFFER_SIZE */
 
 # include <unistd.h>

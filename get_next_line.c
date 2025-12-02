@@ -6,7 +6,7 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 17:00:53 by abait-el          #+#    #+#             */
-/*   Updated: 2025/11/23 16:32:11 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/12/02 06:15:20 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	buf = malloc(BUFFER_SIZE + 1);
+	buf = malloc(BUFFER_SIZE + (size_t)1);
 	if (!buf)
 		return (NULL);
 	line = rem;
