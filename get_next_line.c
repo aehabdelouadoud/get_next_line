@@ -6,11 +6,12 @@
 /*   By: abait-el <abait-el@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 17:00:53 by abait-el          #+#    #+#             */
-/*   Updated: 2025/12/02 06:15:20 by abait-el         ###   ########.fr       */
+/*   Updated: 2025/12/02 21:41:04 by abait-el         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdlib.h>
 
 char	*gnl_strcut(char **s, char sep)
 {
@@ -36,6 +37,27 @@ char	*gnl_strcut(char **s, char sep)
 	return (right);
 }
 
+void	*gnl_calloc(size_t nmemb, size_t size)
+{
+	size_t	i;
+	size_t	total;
+	char	*ptr;
+
+	if (size != 0 && nmemb > ((size_t)-1) / size)
+		return (NULL);
+	total = nmemb * size;
+	ptr = (char *)malloc(total);
+	if (!ptr)
+		return (NULL);
+	i = 0;
+	while (i < total)
+	{
+		ptr[i] = 0;
+		i++;
+	}
+	return ((void *)ptr);
+}
+
 char	*get_next_line(int fd)
 {
 	static char	*rem;
@@ -43,13 +65,13 @@ char	*get_next_line(int fd)
 	char		*buf;
 	int			bytes;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0)
 		return (NULL);
-	buf = malloc(BUFFER_SIZE + (size_t)1);
+	buf = gnl_calloc((size_t)BUFFER_SIZE + 1, 1);
 	if (!buf)
 		return (NULL);
 	line = rem;
-	while (!gnl_strchr(line, '\n'))
+	while (!gnl_strchr(buf, '\n'))
 	{
 		bytes = read(fd, buf, BUFFER_SIZE);
 		if (bytes <= 0)
